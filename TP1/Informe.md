@@ -81,11 +81,56 @@ Aplicando la flag -p se obtiene como salida solo el perfil plano.
 ---
 
 ## Benchmarks
+# Reporte de Benchmarking y Rendimiento del Sistema
 
----
+ Un benchmark es una prueba de rendimiento estandarizada que se realiza sobre un componente o un sistema de software para medir su capacidad, rendimiento, eficacia. Los benchmarks realizan una serie de tareas predefinidas y exigentes, y mide cuánto tiempo tarda nuestro sistema en completarlas. En base al tiempo de ejecución que conlleve, se obtiene un score.
 
-## ¿Cual es el rendimiento de estos procesadores para compilar el kernel de linux?
-- Intel Core i5-13600K
-- AMD Ryzen 9 5900X 12-Core
-Cual es la aceleración cuando usamos un AMD Ryzen 9 7950X 16-Core
+ Hay una gran cantidad de benchmarks disponibles los cuales se ajustan a cada componente o sistema operativo, como windows o Linux. Como ejemplo se pueden mencionar:
 
+### **Linux**
+* **Llama.cpp**: Rendimiento en modelos de lenguaje (IA).
+* **Timed Linux Kernel Compilation**: Velocidad de procesamiento de archivos.
+* **Blender**: Renderizado 3D.
+* **Hashcat**: Criptografía y seguridad.
+* **OpenVINO GenAI / OpenGL**: Gráficos y aceleración de IA.
+
+### **Windows**
+* **PCMark 10**: Rendimiento general de oficina.
+* **UserBenchmark**: Comparativa rápida de componentes.
+* **Cinebench**: Renderizado de CPU puro.
+* **Geekbench**: Rendimiento sintético mono y multihilo.
+* **3DMark (Time Spy / Port Royal)**: Rendimiento gráfico en gaming.
+
+
+## Tareas Diarias y Benchmarks Asociados
+
+Esta tabla resume la relación entre el flujo de trabajo personal y la herramienta de medición ideal:
+
+| Tarea Diaria | Benchmark | Detalle del Benchmark |
+| :--- | :--- | :--- |
+| **Gaming (AAA)** | 3DMark Time Spy / Port Royal | Esta tarea implica mucho poder de procesamiento tanto por parte del CPU como de la GPU. Este benchmark permite estresar dichos componentes a través de tareas de renderizado pesado. |
+| **Programación** | Geekbench 6 (Multi-core) | En esta tarea se incluyen actividades de programacion simples hasta actividades de programación multihilos, por ejemplo para levantar microservicios en docker. Este benchmark mide la capacidad de procesar hilos en paralelo y recae sobre el CPU. |
+| **Compilación de código** | Linux Kernel Compilation | Para la realización de varios proyectos académicos utilizo Linux. Este bench mide el tiempo que tarda el CPU en procesar muchos archivos pequeños.|
+| **Pestañas multitarea** | PCMark 10 | Este bench simula la navegación web, edición de documentos y videollamadas de manera simultánea.|
+
+
+## Análisis de Rendimiento (Casos Prácticos)
+
+Utilizando los datos de la tarea **Timed Linux Kernel Compilation**, realizamos las siguientes comparativas:
+
+### 1. Comparativa de Rendimiento
+* **Intel Core i5-13600K**: $72 \pm 5$ seg.
+* **AMD Ryzen 9 5900X**: $76 \pm 8$ seg.
+
+A simple vista, podemos decir que el i5 13600K tiene mejor rendimiento para compilar el Kernel de Linux. Si hacemos la comparativa utilizando la fórmula:
+
+$$\frac{\text{Rendimiento } i5}{\text{Rendimiento } R9} = \frac{76s}{72s} = 1.055$$
+
+> **Resultado:** El **Intel Core i5-13600K** es un **5,5% más rápido** que el Ryzen 9 5900X en esta tarea.
+
+### 2. Cálculo de Aceleración ($S$)
+Si utilizamos un RYzen 9 7950X 16 core, para el cual el tiempo es de 50 +/- 6 seg, entonces la aceleracion es:
+
+$$S = \frac{T_{viejo}}{T_{nuevo}} = \frac{76s}{50s} = 1.52$$
+
+> **Resultado:** El Ryzen 9 7950X (16 core) ofrece una aceleración de **1.52x**, lo que significa que es un **52% más rápido** que el modelo 5900X 12 core.
