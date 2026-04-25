@@ -71,9 +71,6 @@ Si se modifica el atributo del segmento de datos a Solo Lectura y se intenta esc
 
 #### En modo protegido, con qué valor se cargan los registros de segmento? Por qué?
 
-En este modo los registros (CS, DS, etc) se cargan con un Selector.
-
-
-Por qué: Porque ya no contienen una dirección base directamente como en modo real (donde se multiplicaba por 16). En modo protegido, el selector actúa como un índice para buscar en la tabla de descriptores (GDT) los parámetros reales de base, límite y atributos del segmento.
+En este modo los registros (CS, DS, etc) se cargan con un Selector. Esto es así porque ya no contienen una dirección base directamente como en modo real (donde se multiplicaba por 16). En modo protegido, el selector actúa como un índice para buscar en la tabla de descriptores (GDT) los parámetros reales de base, límite y atributos del segmento.
 
 ## Apartado práctico: Modo protegido
